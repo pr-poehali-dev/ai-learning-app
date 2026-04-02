@@ -167,6 +167,7 @@ export default function HomePage({ onNavigate }: HomePageProps) {
           {featuredCourses.map((course) => (
             <div
               key={course.id}
+              onClick={() => onNavigate("course")}
               className={`glass rounded-2xl overflow-hidden card-3d border border-white/5 hover:border-purple-500/20 transition-all cursor-pointer bg-gradient-to-br ${course.gradient}`}
             >
               <div className="p-6">

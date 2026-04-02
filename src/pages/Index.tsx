@@ -7,8 +7,9 @@ import ProgressPage from "@/components/sections/ProgressPage";
 import CommunityPage from "@/components/sections/CommunityPage";
 import CertificatesPage from "@/components/sections/CertificatesPage";
 import SupportPage from "@/components/sections/SupportPage";
+import CourseSinglePage from "@/components/sections/CourseSinglePage";
 
-export type Section = "home" | "courses" | "profile" | "progress" | "community" | "certificates" | "support";
+export type Section = "home" | "courses" | "course" | "profile" | "progress" | "community" | "certificates" | "support";
 
 export default function Index() {
   const [activeSection, setActiveSection] = useState<Section>("home");
@@ -16,12 +17,13 @@ export default function Index() {
   const renderSection = () => {
     switch (activeSection) {
       case "home": return <HomePage onNavigate={setActiveSection} />;
-      case "courses": return <CoursesPage />;
+      case "courses": return <CoursesPage onNavigate={setActiveSection} />;
       case "profile": return <ProfilePage onNavigate={setActiveSection} />;
       case "progress": return <ProgressPage />;
       case "community": return <CommunityPage />;
       case "certificates": return <CertificatesPage />;
       case "support": return <SupportPage />;
+      case "course": return <CourseSinglePage onNavigate={setActiveSection} />;
       default: return <HomePage onNavigate={setActiveSection} />;
     }
   };

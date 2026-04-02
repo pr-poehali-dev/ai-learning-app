@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Icon from "@/components/ui/icon";
+import { Section } from "@/pages/Index";
 
 const filters = ["Все", "ИИ", "Психология", "Мотивация"];
 const levels = ["Любой", "Начинающий", "Средний", "Продвинутый"];
@@ -18,7 +19,11 @@ const recommended = [
   { title: "Психология принятия решений", reason: "Популярно среди похожих на тебя", icon: "💡" },
 ];
 
-export default function CoursesPage() {
+interface CoursesPageProps {
+  onNavigate?: (s: Section) => void;
+}
+
+export default function CoursesPage({ onNavigate }: CoursesPageProps) {
   const [activeFilter, setActiveFilter] = useState("Все");
   const [activeLevel, setActiveLevel] = useState("Любой");
   const [search, setSearch] = useState("");
@@ -105,6 +110,7 @@ export default function CoursesPage() {
         {filtered.map(course => (
           <div
             key={course.id}
+            onClick={() => onNavigate?.("course")}
             className={`glass rounded-2xl overflow-hidden card-3d border border-white/5 hover:border-purple-500/20 transition-all cursor-pointer bg-gradient-to-br ${course.gradient}`}
           >
             <div className="p-6">
