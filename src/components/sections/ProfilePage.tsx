@@ -20,10 +20,10 @@ export default function ProfilePage({ onNavigate }: ProfilePageProps) {
   const [activeTab, setActiveTab] = useState<"info" | "achievements" | "settings">("info");
 
   return (
-    <div className="max-w-4xl mx-auto px-4 pb-16">
-      <div className="pt-6 pb-8">
+    <div className="max-w-4xl mx-auto px-3 sm:px-4 pb-16">
+      <div className="pt-4 sm:pt-6 pb-0">
         {/* Profile Header */}
-        <div className="glass rounded-3xl p-6 md:p-8 border border-white/5 relative overflow-hidden mb-6">
+        <div className="glass rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-8 border border-white/5 relative overflow-hidden mb-5 sm:mb-6">
           <div className="absolute inset-0 bg-gradient-to-br from-purple-600/10 to-cyan-600/5" />
           <div className="relative flex flex-col md:flex-row gap-6 items-start md:items-center">
             <div className="relative">

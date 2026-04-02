@@ -18,14 +18,14 @@ const milestones = [
 
 export default function ProgressPage() {
   return (
-    <div className="max-w-5xl mx-auto px-4 pb-16">
-      <div className="pt-6 pb-8">
-        <h1 className="font-montserrat font-black text-4xl mb-2">Мой прогресс</h1>
-        <p className="text-muted-foreground">Траектория адаптируется под твои результаты</p>
+    <div className="max-w-5xl mx-auto px-3 sm:px-4 pb-16">
+      <div className="pt-4 sm:pt-6 pb-5 sm:pb-8">
+        <h1 className="font-montserrat font-black text-3xl sm:text-4xl mb-2">Мой прогресс</h1>
+        <p className="text-sm sm:text-base text-muted-foreground">Траектория адаптируется под твои результаты</p>
       </div>
 
       {/* Summary Cards */}
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 mb-6 sm:mb-8">
         {[
           { value: "65%", label: "Общий прогресс", icon: "TrendingUp", color: "text-purple-400" },
           { value: "47ч", label: "Время обучения", icon: "Clock", color: "text-cyan-400" },
@@ -83,9 +83,9 @@ export default function ProgressPage() {
             <Icon name="BarChart2" size={16} className="text-purple-400" />
             Активность за неделю
           </h2>
-          <div className="flex items-end gap-2 h-28">
+          <div className="flex items-end gap-1.5 sm:gap-2 h-24 sm:h-28">
             {weekActivity.map((h, i) => (
-              <div key={i} className="flex-1 flex flex-col items-center gap-1.5">
+              <div key={i} className="flex-1 flex flex-col items-center gap-1">
                 <div
                   className="w-full rounded-t-lg transition-all"
                   style={{
@@ -95,7 +95,7 @@ export default function ProgressPage() {
                       : 'rgba(168, 85, 247, 0.35)'
                   }}
                 />
-                <span className="text-xs text-muted-foreground">{days[i]}</span>
+                <span className="text-[10px] sm:text-xs text-muted-foreground">{days[i]}</span>
               </div>
             ))}
           </div>
@@ -108,14 +108,14 @@ export default function ProgressPage() {
             <Icon name="Calendar" size={16} className="text-orange-400" />
             Стрик апреля
           </h2>
-          <div className="grid grid-cols-7 gap-1.5">
+          <div className="grid grid-cols-7 gap-1 sm:gap-1.5">
             {Array.from({length: 30}, (_, i) => {
               const isActive = i < 7;
               const isToday = i === 6;
               return (
                 <div
                   key={i}
-                  className={`aspect-square rounded-md flex items-center justify-center text-xs transition-all ${
+                  className={`aspect-square rounded-md flex items-center justify-center text-[10px] sm:text-xs transition-all ${
                     isToday ? 'bg-gradient-to-br from-purple-500 to-cyan-500 text-white font-bold shadow-lg shadow-purple-500/30'
                     : isActive ? 'bg-purple-500/40 text-purple-300'
                     : 'bg-white/5 text-muted-foreground/40'

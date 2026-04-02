@@ -22,10 +22,10 @@ const upcoming = [
 
 export default function CertificatesPage() {
   return (
-    <div className="max-w-5xl mx-auto px-4 pb-16">
-      <div className="pt-6 pb-8">
-        <h1 className="font-montserrat font-black text-4xl mb-2">Сертификаты</h1>
-        <p className="text-muted-foreground">Твои подтверждённые достижения</p>
+    <div className="max-w-5xl mx-auto px-3 sm:px-4 pb-16">
+      <div className="pt-4 sm:pt-6 pb-5 sm:pb-8">
+        <h1 className="font-montserrat font-black text-3xl sm:text-4xl mb-2">Сертификаты</h1>
+        <p className="text-sm sm:text-base text-muted-foreground">Твои подтверждённые достижения</p>
       </div>
 
       {/* Earned */}

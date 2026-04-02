@@ -36,10 +36,10 @@ export default function CoursesPage({ onNavigate }: CoursesPageProps) {
   });
 
   return (
-    <div className="max-w-7xl mx-auto px-4 pb-16">
-      <div className="pt-6 pb-8">
-        <h1 className="font-montserrat font-black text-4xl mb-2">Каталог курсов</h1>
-        <p className="text-muted-foreground">Выбери путь — система подберёт траекторию под тебя</p>
+    <div className="max-w-7xl mx-auto px-3 sm:px-4 pb-16">
+      <div className="pt-4 sm:pt-6 pb-5 sm:pb-8">
+        <h1 className="font-montserrat font-black text-3xl sm:text-4xl mb-2">Каталог курсов</h1>
+        <p className="text-sm sm:text-base text-muted-foreground">Выбери путь — система подберёт траекторию под тебя</p>
       </div>
 
       {/* Recommended */}

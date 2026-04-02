@@ -62,69 +62,69 @@ interface HomePageProps {
 
 export default function HomePage({ onNavigate }: HomePageProps) {
   return (
-    <div className="max-w-7xl mx-auto px-4 pb-16">
+    <div className="max-w-7xl mx-auto px-3 sm:px-4 pb-16">
       {/* Hero */}
-      <section className="pt-8 pb-16 text-center relative">
-        <div className="inline-flex items-center gap-2 glass rounded-full px-4 py-2 text-sm text-muted-foreground mb-6 border border-purple-500/20 animate-fade-in">
-          <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
+      <section className="pt-6 sm:pt-8 pb-10 sm:pb-16 text-center relative">
+        <div className="inline-flex items-center gap-2 glass rounded-full px-3 py-1.5 sm:px-4 sm:py-2 text-xs sm:text-sm text-muted-foreground mb-5 border border-purple-500/20 animate-fade-in">
+          <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse shrink-0" />
           Адаптивное обучение на основе ИИ
         </div>
 
-        <h1 className="font-montserrat font-black text-5xl md:text-7xl leading-tight mb-6 animate-slide-up">
+        <h1 className="font-montserrat font-black text-4xl sm:text-5xl md:text-7xl leading-tight mb-5 animate-slide-up">
           Прокачай разум
           <br />
           <span className="gradient-text glow-text-purple">с нейросетями</span>
         </h1>
 
-        <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-10 animate-fade-in" style={{animationDelay: '0.2s'}}>
-          Персональные траектории обучения по ИИ, психологии и мотивации.<br />
+        <p className="text-sm sm:text-lg text-muted-foreground max-w-2xl mx-auto mb-8 animate-fade-in px-2" style={{animationDelay: '0.2s'}}>
+          Персональные траектории обучения по ИИ, психологии и мотивации.
           Система адаптируется под твой прогресс и стиль мышления.
         </p>
 
-        <div className="flex flex-wrap items-center justify-center gap-4 animate-fade-in" style={{animationDelay: '0.3s'}}>
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-3 animate-fade-in px-4 sm:px-0" style={{animationDelay: '0.3s'}}>
           <button
             onClick={() => onNavigate("courses")}
-            className="px-8 py-4 rounded-2xl font-montserrat font-bold text-base text-white bg-gradient-to-r from-purple-600 to-cyan-600 hover:from-purple-500 hover:to-cyan-500 transition-all duration-200 glow-purple hover:scale-105 active:scale-95"
+            className="w-full sm:w-auto px-8 py-3.5 sm:py-4 rounded-2xl font-montserrat font-bold text-base text-white bg-gradient-to-r from-purple-600 to-cyan-600 hover:from-purple-500 hover:to-cyan-500 transition-all duration-200 glow-purple active:scale-95"
           >
             Начать обучение
           </button>
           <button
             onClick={() => onNavigate("courses")}
-            className="px-8 py-4 rounded-2xl font-montserrat font-bold text-base glass border-glass-border hover:bg-white/8 transition-all duration-200 flex items-center gap-2 hover:scale-105"
+            className="w-full sm:w-auto px-8 py-3.5 sm:py-4 rounded-2xl font-montserrat font-bold text-base glass border border-white/10 hover:bg-white/8 transition-all duration-200 flex items-center justify-center gap-2"
           >
             <Icon name="Play" size={16} />
             Смотреть демо
           </button>
         </div>
 
-        <div className="mt-16 relative rounded-3xl overflow-hidden glass border border-purple-500/10 max-w-4xl mx-auto">
+        <div className="mt-10 sm:mt-16 relative rounded-2xl sm:rounded-3xl overflow-hidden glass border border-purple-500/10 max-w-4xl mx-auto">
           <img
             src="https://cdn.poehali.dev/projects/9c924e3a-0603-4b7a-8a04-722f97a3c3b6/files/5b9fb5a0-ff5c-4537-b568-399ce065a049.jpg"
             alt="NeuraMind Platform"
-            className="w-full h-64 md:h-96 object-cover opacity-80"
+            className="w-full h-44 sm:h-64 md:h-96 object-cover opacity-80"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent" />
-          <div className="absolute bottom-6 left-6 right-6 flex items-end justify-between">
-            <div className="glass rounded-2xl p-4 border border-white/10">
-              <div className="text-xs text-muted-foreground mb-1">Твоя траектория</div>
-              <div className="font-montserrat font-bold text-sm gradient-text">ИИ → Психология → Мотивация</div>
+          <div className="absolute bottom-3 left-3 right-3 sm:bottom-6 sm:left-6 sm:right-6 flex items-end justify-between gap-3">
+            <div className="glass rounded-xl sm:rounded-2xl p-3 sm:p-4 border border-white/10 min-w-0 flex-1">
+              <div className="text-[10px] sm:text-xs text-muted-foreground mb-1">Твоя траектория</div>
+              <div className="font-montserrat font-bold text-xs sm:text-sm gradient-text truncate">ИИ → Психология → Мотивация</div>
               <div className="mt-2">
-                <div className="h-1.5 bg-white/10 rounded-full w-48">
+                <div className="h-1.5 bg-white/10 rounded-full">
                   <div className="progress-bar h-1.5 rounded-full" style={{width: '65%'}} />
                 </div>
-                <div className="text-xs text-muted-foreground mt-1">65% пути пройдено</div>
+                <div className="text-[10px] sm:text-xs text-muted-foreground mt-1">65% пути пройдено</div>
               </div>
             </div>
-            <div className="glass rounded-2xl p-4 border border-white/10 text-center hidden md:block">
-              <div className="text-2xl font-montserrat font-black gradient-text">🔥 7</div>
-              <div className="text-xs text-muted-foreground">дней подряд</div>
+            <div className="glass rounded-xl sm:rounded-2xl p-3 sm:p-4 border border-white/10 text-center shrink-0">
+              <div className="text-xl sm:text-2xl font-montserrat font-black gradient-text">🔥 7</div>
+              <div className="text-[10px] sm:text-xs text-muted-foreground">дней подряд</div>
             </div>
           </div>
         </div>
       </section>
 
       {/* Stats */}
-      <section className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-16">
+      <section className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 mb-10 sm:mb-16">
         {stats.map((s, i) => (
           <div key={i} className="glass rounded-2xl p-5 text-center card-3d border border-white/5 hover:border-purple-500/20 transition-all">
             <Icon name={s.icon} size={20} className="text-neon-purple mx-auto mb-2 text-purple-400" />

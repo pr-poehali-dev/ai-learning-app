@@ -84,9 +84,9 @@ export default function CourseSinglePage({ onNavigate }: CourseSinglePageProps) 
   };
 
   return (
-    <div className="max-w-7xl mx-auto px-4 pb-20">
+    <div className="max-w-7xl mx-auto px-3 sm:px-4 pb-20">
       {/* Back */}
-      <div className="pt-6 mb-6">
+      <div className="pt-4 sm:pt-6 mb-4 sm:mb-6">
         <button
           onClick={() => onNavigate("courses")}
           className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors group"
@@ -97,9 +97,9 @@ export default function CourseSinglePage({ onNavigate }: CourseSinglePageProps) 
       </div>
 
       {/* Hero */}
-      <div className="relative rounded-3xl overflow-hidden mb-8 border border-white/5">
+      <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden mb-5 sm:mb-8 border border-white/5">
         {/* Video area */}
-        <div className="relative bg-black aspect-video max-h-[480px] w-full flex items-center justify-center">
+        <div className="relative bg-black aspect-video w-full flex items-center justify-center">
           <div
             className="absolute inset-0"
             style={{
@@ -124,11 +124,11 @@ export default function CourseSinglePage({ onNavigate }: CourseSinglePageProps) 
           </div>
 
           {/* Lesson title overlay */}
-          <div className="absolute top-5 left-5 right-5 flex items-center justify-between">
-            <div className="glass rounded-xl px-3 py-1.5 text-xs border border-white/10 max-w-xs truncate">
-              Урок {activeLesson}: {currentLesson?.title}
+          <div className="absolute top-3 left-3 right-3 sm:top-5 sm:left-5 sm:right-5 flex items-center justify-between gap-2">
+            <div className="glass rounded-lg sm:rounded-xl px-2 py-1 sm:px-3 sm:py-1.5 text-[10px] sm:text-xs border border-white/10 truncate min-w-0">
+              Ур. {activeLesson}: {currentLesson?.title}
             </div>
-            <div className="glass rounded-xl px-3 py-1.5 text-xs border border-white/10">
+            <div className="glass rounded-lg sm:rounded-xl px-2 py-1 sm:px-3 sm:py-1.5 text-[10px] sm:text-xs border border-white/10 shrink-0">
               {currentLesson?.duration}
             </div>
           </div>
@@ -148,10 +148,10 @@ export default function CourseSinglePage({ onNavigate }: CourseSinglePageProps) 
           </button>
 
           {/* Controls bar */}
-          <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent">
+          <div className="absolute bottom-0 left-0 right-0 px-3 py-3 sm:p-4 bg-gradient-to-t from-black/80 to-transparent">
             {/* Progress */}
             <div
-              className="h-1.5 bg-white/20 rounded-full cursor-pointer mb-3 relative group"
+              className="h-1.5 bg-white/20 rounded-full cursor-pointer mb-2.5 relative group"
               onClick={handleProgressClick}
               ref={progressRef}
             >
@@ -166,15 +166,15 @@ export default function CourseSinglePage({ onNavigate }: CourseSinglePageProps) 
               </div>
             </div>
 
-            <div className="flex items-center gap-3 text-xs text-white/70">
+            <div className="flex items-center gap-2 sm:gap-3 text-xs text-white/70">
               <button onClick={() => setPlaying(!playing)}>
                 <Icon name={playing ? "Pause" : "Play"} size={14} className="text-white" />
               </button>
-              <span className="font-mono">
+              <span className="font-mono text-[10px] sm:text-xs">
                 {Math.floor(videoProgress * 8.24 / 100)}:{String(Math.floor(((videoProgress * 8.24 / 100) % 1) * 60)).padStart(2,'0')} / 8:24
               </span>
               <div className="flex-1" />
-              <button className="flex items-center gap-1 hover:text-white transition-colors">
+              <button className="hidden sm:flex items-center gap-1 hover:text-white transition-colors">
                 <Icon name="Volume2" size={13} /> 100%
               </button>
               <button className="hover:text-white transition-colors text-xs">1x</button>
@@ -186,12 +186,12 @@ export default function CourseSinglePage({ onNavigate }: CourseSinglePageProps) 
         </div>
       </div>
 
-      <div className="grid lg:grid-cols-[1fr_380px] gap-6">
+      <div className="grid lg:grid-cols-[1fr_380px] gap-5 sm:gap-6">
         {/* LEFT */}
         <div>
           {/* Course Header */}
-          <div className="mb-6">
-            <div className="flex items-center gap-2 mb-3">
+          <div className="mb-5 sm:mb-6">
+            <div className="flex items-center gap-2 mb-3 flex-wrap">
               <span className="text-xs px-2.5 py-1 rounded-lg bg-purple-500/20 text-purple-300 border border-purple-500/20 font-medium">ИИ</span>
               <span className="text-xs text-muted-foreground">•</span>
               <span className="text-xs text-muted-foreground">Начинающий</span>
@@ -201,13 +201,16 @@ export default function CourseSinglePage({ onNavigate }: CourseSinglePageProps) 
                 <span className="text-muted-foreground">(1 240 отзывов)</span>
               </span>
             </div>
-            <h1 className="font-montserrat font-black text-3xl md:text-4xl mb-3 leading-tight">
+            <h1 className="font-montserrat font-black text-2xl sm:text-3xl md:text-4xl mb-3 leading-tight">
               ChatGPT и промпт-инжиниринг
             </h1>
-            <p className="text-muted-foreground leading-relaxed max-w-2xl">
+            <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
               Научись разговаривать с ИИ так, чтобы он делал всё, что тебе нужно. Реальные кейсы из маркетинга, продаж и автоматизации — без воды.
             </p>
           </div>
+
+          {/* Mobile enroll card — shown above program on mobile */}
+          <MobileEnrollBanner enrolled={enrolled} onEnroll={() => setEnrolled(true)} />
 
           {/* Progress bar (if enrolled) */}
           {enrolled && (
@@ -266,8 +269,8 @@ export default function CourseSinglePage({ onNavigate }: CourseSinglePageProps) 
           </div>
         </div>
 
-        {/* RIGHT SIDEBAR */}
-        <div className="space-y-4">
+        {/* RIGHT SIDEBAR — desktop only */}
+        <div className="hidden lg:block space-y-4">
           {/* Enroll Card */}
           <div className="glass rounded-2xl p-6 border border-purple-500/20 bg-gradient-to-br from-purple-600/10 to-cyan-600/5 sticky top-24">
             <div className="flex items-center justify-between mb-1">
@@ -346,6 +349,32 @@ export default function CourseSinglePage({ onNavigate }: CourseSinglePageProps) 
           </div>
         </div>
       </div>
+    </div>
+  );
+}
+
+function MobileEnrollBanner({ enrolled, onEnroll }: { enrolled: boolean; onEnroll: () => void }) {
+  return (
+    <div className="lg:hidden glass rounded-2xl p-4 border border-purple-500/20 bg-gradient-to-br from-purple-600/10 to-cyan-600/5 mb-5">
+      <div className="flex items-center justify-between mb-3">
+        <div>
+          <span className="text-xl font-montserrat font-black gradient-text">Бесплатно</span>
+          <span className="text-xs text-muted-foreground line-through ml-2">1 990 ₽</span>
+        </div>
+        <span className="text-xs text-green-400">🎁 Акция 2 дня</span>
+      </div>
+      {enrolled ? (
+        <button className="w-full py-3 rounded-xl font-montserrat font-bold text-sm text-white"
+          style={{background: 'linear-gradient(135deg, #a855f7, #22d3ee)'}}>
+          Продолжить обучение →
+        </button>
+      ) : (
+        <button onClick={onEnroll}
+          className="w-full py-3 rounded-xl font-montserrat font-bold text-sm text-white"
+          style={{background: 'linear-gradient(135deg, #a855f7, #22d3ee)', boxShadow: '0 0 20px rgba(168,85,247,0.3)'}}>
+          Начать бесплатно
+        </button>
+      )}
     </div>
   );
 }

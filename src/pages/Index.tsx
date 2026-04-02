@@ -38,7 +38,7 @@ export default function Index() {
 
       <Navbar activeSection={activeSection} onNavigate={setActiveSection} />
 
-      <main className="pt-20">
+      <main className="pt-16 sm:pt-20 pb-24 lg:pb-0">
         {renderSection()}
       </main>
     </div>

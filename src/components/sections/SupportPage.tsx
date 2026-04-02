@@ -20,10 +20,10 @@ export default function SupportPage() {
   };
 
   return (
-    <div className="max-w-4xl mx-auto px-4 pb-16">
-      <div className="pt-6 pb-8">
-        <h1 className="font-montserrat font-black text-4xl mb-2">Поддержка</h1>
-        <p className="text-muted-foreground">Мы ответим в течение 2 часов в рабочее время</p>
+    <div className="max-w-4xl mx-auto px-3 sm:px-4 pb-16">
+      <div className="pt-4 sm:pt-6 pb-5 sm:pb-8">
+        <h1 className="font-montserrat font-black text-3xl sm:text-4xl mb-2">Поддержка</h1>
+        <p className="text-sm sm:text-base text-muted-foreground">Мы ответим в течение 2 часов в рабочее время</p>
       </div>
 
       {/* Quick Links */}
