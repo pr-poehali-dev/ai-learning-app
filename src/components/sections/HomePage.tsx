@@ -58,9 +58,10 @@ const stats = [
 
 interface HomePageProps {
   onNavigate: (s: Section) => void;
+  onNavigateToCourse: (id: number) => void;
 }
 
-export default function HomePage({ onNavigate }: HomePageProps) {
+export default function HomePage({ onNavigate, onNavigateToCourse }: HomePageProps) {
   return (
     <div className="max-w-7xl mx-auto px-3 sm:px-4 pb-16">
       {/* Hero */}
@@ -167,7 +168,7 @@ export default function HomePage({ onNavigate }: HomePageProps) {
           {featuredCourses.map((course) => (
             <div
               key={course.id}
-              onClick={() => onNavigate("course")}
+              onClick={() => onNavigateToCourse(course.id)}
               className={`glass rounded-2xl overflow-hidden card-3d border border-white/5 hover:border-purple-500/20 transition-all cursor-pointer bg-gradient-to-br ${course.gradient}`}
             >
               <div className="p-6">

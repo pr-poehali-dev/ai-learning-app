@@ -15,15 +15,16 @@ const courses = [
 ];
 
 const recommended = [
-  { title: "Начни с основ ИИ", reason: "Твой профиль: новичок в технологиях", icon: "🤖" },
-  { title: "Психология принятия решений", reason: "Популярно среди похожих на тебя", icon: "💡" },
+  { title: "Начни с основ ИИ", reason: "Твой профиль: новичок в технологиях", icon: "🤖", courseId: 1 },
+  { title: "Психология принятия решений", reason: "Популярно среди похожих на тебя", icon: "💡", courseId: 5 },
 ];
 
 interface CoursesPageProps {
   onNavigate?: (s: Section) => void;
+  onNavigateToCourse?: (id: number) => void;
 }
 
-export default function CoursesPage({ onNavigate }: CoursesPageProps) {
+export default function CoursesPage({ onNavigate, onNavigateToCourse }: CoursesPageProps) {
   const [activeFilter, setActiveFilter] = useState("Все");
   const [activeLevel, setActiveLevel] = useState("Любой");
   const [search, setSearch] = useState("");
@@ -50,7 +51,7 @@ export default function CoursesPage({ onNavigate }: CoursesPageProps) {
         </div>
         <div className="grid md:grid-cols-2 gap-3">
           {recommended.map((r, i) => (
-            <div key={i} className="flex items-center gap-3 p-3 rounded-xl bg-white/5 hover:bg-white/8 cursor-pointer transition-all">
+            <div key={i} onClick={() => onNavigateToCourse?.(r.courseId)} className="flex items-center gap-3 p-3 rounded-xl bg-white/5 hover:bg-white/8 cursor-pointer transition-all">
               <span className="text-2xl">{r.icon}</span>
               <div>
                 <div className="font-medium text-sm">{r.title}</div>
@@ -110,7 +111,7 @@ export default function CoursesPage({ onNavigate }: CoursesPageProps) {
         {filtered.map(course => (
           <div
             key={course.id}
-            onClick={() => onNavigate?.("course")}
+            onClick={() => onNavigateToCourse?.(course.id)}
             className={`glass rounded-2xl overflow-hidden card-3d border border-white/5 hover:border-purple-500/20 transition-all cursor-pointer bg-gradient-to-br ${course.gradient}`}
           >
             <div className="p-6">

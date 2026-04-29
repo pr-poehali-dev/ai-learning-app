@@ -1,8 +1,9 @@
 import Icon from "@/components/ui/icon";
+import { Section } from "@/pages/Index";
 
 const activeCourses = [
-  { emoji: "🤖", title: "ChatGPT и промпт-инжиниринг", progress: 65, nextLesson: "Урок 10: Системные промпты", timeLeft: "3 ч 20 мин", cat: "ИИ", gradient: "from-purple-600/20 to-cyan-600/10" },
-  { emoji: "🧘", title: "Управление тревогой и стрессом", progress: 30, nextLesson: "Урок 4: Техника 4-7-8", timeLeft: "5 ч 15 мин", cat: "Психология", gradient: "from-pink-600/20 to-purple-600/10" },
+  { id: 1, emoji: "🤖", title: "ChatGPT и промпт-инжиниринг", progress: 65, nextLesson: "Урок 10: Системные промпты", timeLeft: "3 ч 20 мин", cat: "ИИ", gradient: "from-purple-600/20 to-cyan-600/10" },
+  { id: 2, emoji: "🧘", title: "Управление тревогой и стрессом", progress: 30, nextLesson: "Урок 4: Техника 4-7-8", timeLeft: "5 ч 15 мин", cat: "Психология", gradient: "from-pink-600/20 to-purple-600/10" },
 ];
 
 const weekActivity = [60, 80, 40, 100, 70, 50, 90];
@@ -16,7 +17,12 @@ const milestones = [
   { icon: "🔒", text: "Пройти «Систему достижений»", date: "Цель апрель", done: false },
 ];
 
-export default function ProgressPage() {
+interface ProgressPageProps {
+  onNavigate: (s: Section) => void;
+  onNavigateToCourse: (id: number) => void;
+}
+
+export default function ProgressPage({ onNavigateToCourse }: ProgressPageProps) {
   return (
     <div className="max-w-5xl mx-auto px-3 sm:px-4 pb-16">
       <div className="pt-4 sm:pt-6 pb-5 sm:pb-8">
@@ -65,7 +71,10 @@ export default function ProgressPage() {
                     <span className="text-xs text-muted-foreground flex items-center gap-1">
                       <Icon name="Clock" size={11} /> {c.timeLeft} осталось
                     </span>
-                    <button className="text-xs px-4 py-1.5 rounded-lg bg-gradient-to-r from-purple-600/50 to-cyan-600/30 hover:from-purple-600/70 hover:to-cyan-600/50 transition-all text-white border border-purple-500/30 font-medium">
+                    <button
+                      onClick={() => onNavigateToCourse(c.id)}
+                      className="text-xs px-4 py-1.5 rounded-lg bg-gradient-to-r from-purple-600/50 to-cyan-600/30 hover:from-purple-600/70 hover:to-cyan-600/50 transition-all text-white border border-purple-500/30 font-medium"
+                    >
                       Продолжить →
                     </button>
                   </div>

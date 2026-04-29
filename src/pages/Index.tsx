@@ -13,18 +13,24 @@ export type Section = "home" | "courses" | "course" | "profile" | "progress" | "
 
 export default function Index() {
   const [activeSection, setActiveSection] = useState<Section>("home");
+  const [activeCourseId, setActiveCourseId] = useState<number>(1);
+
+  const navigateToCourse = (courseId: number) => {
+    setActiveCourseId(courseId);
+    setActiveSection("course");
+  };
 
   const renderSection = () => {
     switch (activeSection) {
-      case "home": return <HomePage onNavigate={setActiveSection} />;
-      case "courses": return <CoursesPage onNavigate={setActiveSection} />;
+      case "home": return <HomePage onNavigate={setActiveSection} onNavigateToCourse={navigateToCourse} />;
+      case "courses": return <CoursesPage onNavigate={setActiveSection} onNavigateToCourse={navigateToCourse} />;
       case "profile": return <ProfilePage onNavigate={setActiveSection} />;
-      case "progress": return <ProgressPage />;
+      case "progress": return <ProgressPage onNavigate={setActiveSection} onNavigateToCourse={navigateToCourse} />;
       case "community": return <CommunityPage />;
       case "certificates": return <CertificatesPage />;
       case "support": return <SupportPage />;
-      case "course": return <CourseSinglePage onNavigate={setActiveSection} />;
-      default: return <HomePage onNavigate={setActiveSection} />;
+      case "course": return <CourseSinglePage courseId={activeCourseId} onNavigate={setActiveSection} />;
+      default: return <HomePage onNavigate={setActiveSection} onNavigateToCourse={navigateToCourse} />;
     }
   };
 
